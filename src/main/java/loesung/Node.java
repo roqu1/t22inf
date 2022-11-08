@@ -1,4 +1,4 @@
-package lösung;
+package loesung;
 
 public interface Node {
 

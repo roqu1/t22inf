@@ -1,4 +1,4 @@
-package lösung;
+package loesung;
 
 public class Operator implements Node {
 
