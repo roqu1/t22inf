@@ -39,7 +39,7 @@ public class TermParser {
             //deletes the clear String
             list.removeIf(s -> (s.equals("")));
 
-            arr =
+            arr = list.toArray(arr);
         }
         return null;
     }
