@@ -14,7 +14,7 @@ public class TermParser {
     //Remove spaces from input
     public String[] parse () {
         input = input.replaceAll(" ","");
-
+//2+3*5
         String temp = input;
 
         for (int i = 0; i < input.length(); i++) {
