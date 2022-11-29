@@ -35,14 +35,14 @@ public class TermParser2 {
                     ArrayList<String> bigoperators = new ArrayList<>();
                     bigoperators.add(0,"*");
                     bigoperators.add(1,"/");
-                    if (String.valueOf(temp.charAt(i)) == stack.get(stack.size()-1)
+                   /* if (String.valueOf(temp.charAt(i)) == stack.get(stack.size()-1)
                         || String.valueOf(temp.charAt(i)) ==smalloperators.get(0)
                         && String.valueOf(temp.charAt(i)) ==smalloperators.get(1)
                         && String.valueOf(temp.charAt(i)) ==
                     )
                     {
 
-                    }
+                    }*/
                 }
                 //check if token a open-bracket is
                 if (temp.charAt(i) == '(') {
