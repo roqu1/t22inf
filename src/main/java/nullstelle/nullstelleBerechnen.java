@@ -29,13 +29,18 @@ public class nullstelleBerechnen {
     // check if Math.sqrt method results is 0
     wuerzelErgebnis = Math.sqrt(Math.pow((koeffizienten[1]/2),2)- koeffizienten[0]);
     if (wuerzelErgebnis==0) {
+        // if its 0, than write just one point
         nullstelle[0] = (-koeffizienten[1]/2);
         System.out.println(nullstelle[0]);
+        // check if there is a positive number from Math.sqrt method
     } else if (wuerzelErgebnis>0) {
+        // than use the formel of pq
         nullstelle[0] = (-koeffizienten[1] / 2) + Math.sqrt(Math.pow((koeffizienten[1] / 2), 2) - koeffizienten[0]);
         nullstelle[1] = (-koeffizienten[1] / 2) - Math.sqrt(Math.pow((koeffizienten[1] / 2), 2) - koeffizienten[0]);
         System.out.println(Arrays.toString(nullstelle));
+        // else results
     } else {
+        // Saying the user, that is a negative number from Math.sqrt
         System.out.println("Von Würzel ist eine negative Zahl entstanden!");
     }
     return nullstelle;
