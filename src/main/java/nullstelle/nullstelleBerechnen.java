@@ -3,29 +3,44 @@ package nullstelle;
 import java.util.Arrays;
 
 public class nullstelleBerechnen {
-    public int polynomGrad;
-    private double [] nullstelle = new double[2];
-    public double [] koeffizienten;
+    private static int polynomGrad;
+    private static double [] nullstelle = new double[2];
+    public static double [] koeffizienten;
+    private static double wuerzelErgebnis;
     // 3x²-5x+5;
 
-    public static void main(String[] args) {
-
+    public static void main(nullstelleBerechnen args) {
+        if (polynomGrad == 2) {
+            nullstelleBerechnen.pqformel();
+        }
     }
+
     public nullstelleBerechnen(int polynomGrad, double[] koeffizienten) {
         this.polynomGrad = polynomGrad;
         this.koeffizienten = koeffizienten;
     }
 
-    public  double[] pqformel() {
+    public static double[] pqformel() {
+        //check for no coefficients in the second index
     if (koeffizienten[2] !=1) {
         koeffizienten[1] = koeffizienten[1]/ koeffizienten[2];
         koeffizienten[0] = koeffizienten[0]/ koeffizienten[2];
     }
-    nullstelle[0] = (-koeffizienten[1]/2)+Math.sqrt(Math.pow((koeffizienten[1]/2),2)- koeffizienten[0]);
-    nullstelle[1] = (-koeffizienten[1]/2)-Math.sqrt(Math.pow((koeffizienten[1]/2),2)- koeffizienten[0]);
+    // check if Math.sqrt method results is 0
+    wuerzelErgebnis = Math.sqrt(Math.pow((koeffizienten[1]/2),2)- koeffizienten[0]);
+    if (wuerzelErgebnis==0) {
+        nullstelle[0] = (-koeffizienten[1]/2);
+        System.out.println(nullstelle[0]);
+    } else if (wuerzelErgebnis>0) {
+        nullstelle[0] = (-koeffizienten[1] / 2) + Math.sqrt(Math.pow((koeffizienten[1] / 2), 2) - koeffizienten[0]);
+        nullstelle[1] = (-koeffizienten[1] / 2) - Math.sqrt(Math.pow((koeffizienten[1] / 2), 2) - koeffizienten[0]);
         System.out.println(Arrays.toString(nullstelle));
+    } else {
+        System.out.println("Von Würzel ist eine negative Zahl entstanden!");
+    }
     return nullstelle;
     }
+
 
 
 }
