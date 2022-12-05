@@ -18,10 +18,10 @@ public class Polynom {
         return null;
     }
 
-    private void checkKoeffizient () {
+    /*private void checkKoeffizient () {
         if (koeffizient.length != 5) {
             System.out.println("Es sind nicht 5 Koeffizienten");
-            break
+            break;
         }
     }
 
