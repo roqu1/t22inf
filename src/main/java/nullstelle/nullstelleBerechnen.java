@@ -1,5 +1,5 @@
 package nullstelle;
-
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class nullstelleBerechnen {
@@ -12,6 +12,9 @@ public class nullstelleBerechnen {
     public static void main(nullstelleBerechnen args) {
         if (polynomGrad == 2) {
             nullstelleBerechnen.pqformel();
+        } else if (polynomGrad == 1) {
+            nullstelleBerechnen.linearFunktion();
+
         }
     }
 
@@ -22,19 +25,19 @@ public class nullstelleBerechnen {
 
     public static double[] pqformel() {
         //check for no coefficients in the second index
-    if (koeffizienten[2] !=1) {
+    if (koeffizienten[2] != 1) {
         koeffizienten[1] = koeffizienten[1]/ koeffizienten[2];
         koeffizienten[0] = koeffizienten[0]/ koeffizienten[2];
     }
     // check if Math.sqrt method results is 0
     wuerzelErgebnis = Math.sqrt(Math.pow((koeffizienten[1]/2),2)- koeffizienten[0]);
-    if (wuerzelErgebnis==0) {
-        // if its 0, than write just one point
+    if (wuerzelErgebnis == 0) {
+        // if its 0, then write just one point
         nullstelle[0] = (-koeffizienten[1]/2);
         System.out.println(nullstelle[0]);
         // check if there is a positive number from Math.sqrt method
-    } else if (wuerzelErgebnis>0) {
-        // than use the formel of pq
+    } else if (wuerzelErgebnis > 0) {
+        // Then use the formel of pq
         nullstelle[0] = (-koeffizienten[1] / 2) + Math.sqrt(Math.pow((koeffizienten[1] / 2), 2) - koeffizienten[0]);
         nullstelle[1] = (-koeffizienten[1] / 2) - Math.sqrt(Math.pow((koeffizienten[1] / 2), 2) - koeffizienten[0]);
         System.out.println(Arrays.toString(nullstelle));
@@ -46,6 +49,11 @@ public class nullstelleBerechnen {
     return nullstelle;
     }
 
-
-
+    public static double[] linearFunktion() {
+        // 10x+5 = 0
+        if (koeffizienten[1] == 0 && koeffizienten[0] == 0) {
+            System.out.println("Es wird 0");
+        }
+        return new ArrayList<String>{koeffizienten[0] * -1 / koeffizienten[1]};
+    }
 }
