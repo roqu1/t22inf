@@ -1,6 +1,7 @@
 package nullstelle;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class nullstelleBerechnen {
     private static int polynomGrad;
@@ -40,20 +41,40 @@ public class nullstelleBerechnen {
         // Then use the formel of pq
         nullstelle[0] = (-koeffizienten[1] / 2) + Math.sqrt(Math.pow((koeffizienten[1] / 2), 2) - koeffizienten[0]);
         nullstelle[1] = (-koeffizienten[1] / 2) - Math.sqrt(Math.pow((koeffizienten[1] / 2), 2) - koeffizienten[0]);
-        System.out.println(Arrays.toString(nullstelle));
+
         // else results
-    } else {
-        // Saying the user, that is a negative number from Math.sqrt
-        System.out.println("Von Würzel ist eine negative Zahl entstanden!");
     }
     return nullstelle;
     }
 
-    public static double[] linearFunktion() {
-        // 10x+5 = 0
-        if (koeffizienten[1] == 0 && koeffizienten[0] == 0) {
-            System.out.println("Es wird 0");
+    public static ArrayList<Double> linearFunktion() {
+        return new ArrayList<>(List.of((koeffizienten[0] * -1) / koeffizienten[1]));
+    }
+
+    public String toString() {
+        int derivationCounter = 0;
+        StringBuilder builder = new StringBuilder("f" + ("'".repeat(derivationCounter)) + "(x) = ");
+        double[] temp = koeffizienten;
+        int firstValueIndex = -1;
+        for (int i = koeffizienten.length - 1; i >= 0; i--) if (koeffizienten[i] != 0) firstValueIndex = i;
+        for (int i = temp.length - 1; i >= 0; i--) {
+            if (temp[i] != 0) {
+                builder.append(temp[i]);
+                if (i != 0) {
+                    builder.append("x");
+                    if (i != 1) builder.append("^").append(i);
+                    if (i > firstValueIndex) {
+                        if (i - 1 != 0 && temp[i - 1] < 0) {
+                            builder.append(" - ");
+                            temp[i - 1] *= -1;
+                        } else {
+                            builder.append(" + ");
+                        }
+                    }
+                }
+            }
         }
-        return new ArrayList<String>{koeffizienten[0] * -1 / koeffizienten[1]};
+        System.out.println(builder);
+        return builder.toString();
     }
 }
