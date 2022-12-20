@@ -1,60 +1,34 @@
 package polynom;
 
+import java.util.ArrayList;
+
 public class Polynom {
-    private double[] koeffizient;
-    private int degrees = 0;
-    private String exception;
-    private String symmetry;
+    private double[] koeffizient = new double[5];
+    private int degree = 0;
 
     public Polynom(double[] koeffizient) {
         this.koeffizient = koeffizient;
     }
-
-    private double x;
-
-
-    //Polynom into String with Koeffizient
-    public static String polynom(Polynom koeffizient) {
-        return null;
-    }
-
-    /*private void checkKoeffizient () {
-        if (koeffizient.length != 5) {
-            System.out.println("Es sind nicht 5 Koeffizienten");
-            break;
-        }
-    }
-
-    public void  derivation() {
-        double[] temp;
-        double[] derivation = new double[5];
-
-        for (int i = 0; i < derivation.length; i--) {
-            if(derivation[i] == 0) {
-                derivation[i] = 0;
+    
+    public int getDegree() {
+        for (int i = this.koeffizient.length-1; i >= koeffizient.length ; i--) {
+            if (this.koeffizient[i] != 0) {
+                return i;
             }
-            else {
-                derivation[i] = koeffizient[i] *i;
-            }
-
         }
-
+        return 0;
     }
 
-    //reverse koeffizient
-    /*
-    private String reverse() {
-        for (int i = koeffizient.length - 1; i >= 0; i--) {
-           reversekoeffizient = koeffizient[i];
+
+
+
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < koeffizient.length; i++) {
+            if(koeffizient[i] !=0) {
+                stringBuilder.append();
+            }
         }
-        //Find out what is X
-
-        //Find out how many 'Grades of Polynom' there is
-        //public double getDegrees () {
-            return degrees;
-        }
-        //Find out if there is exponents with couple or not
-
-
-    } */
+        return stringBuilder.toString();
+    }
 }

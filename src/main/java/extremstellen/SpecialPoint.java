@@ -1,6 +1,6 @@
 package extremstellen;
 
-public class SpecialPoint {
+public abstract class SpecialPoint {
     private double xValue;
     private double yValue;
 
